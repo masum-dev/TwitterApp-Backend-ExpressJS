@@ -1,18 +1,10 @@
 import express from "express";
+import { getTweets, getTweetsById } from "../../controllers/tweetController.js";
 
 const route = express.Router();
 
-route.get("/", (req, res) => {
-  res.json({
-    message: "You have hit at /api/v2/tweets",
-  });
-});
+route.get("/", getTweets);
 
-route.get("/:id", (req, res) => {
-  res.json({
-    message: `You have hit at /api/v2/tweets/${req.params.id}`,
-    id: req.params.id,
-  });
-});
+route.get("/:id", getTweetsById);
 
 export default route;

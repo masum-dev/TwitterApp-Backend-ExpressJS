@@ -1,18 +1,13 @@
 import express from "express";
+import {
+  getComments,
+  getCommentsById,
+} from "../../controllers/commentController.js";
 
 const route = express.Router();
 
-route.get("/", (req, res) => {
-  res.json({
-    message: "You have hit at /api/v1/comments",
-  });
-});
+route.get("/", getComments);
 
-route.get("/:id", (req, res) => {
-  res.json({
-    message: `You have hit at /api/v1/comments/${req.params.id}`,
-    id: req.params.id,
-  });
-});
+route.get("/:id", getCommentsById);
 
 export default route;

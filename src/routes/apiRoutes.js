@@ -10,7 +10,7 @@ route.get("/", (req, res) => {
   });
 });
 
-// route.use("/v1", v1Routes);
+route.use("/v1", v1Routes);
 
 route.use("/v2", v2Routes);
 
