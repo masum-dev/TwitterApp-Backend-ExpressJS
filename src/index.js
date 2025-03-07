@@ -1,10 +1,11 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import { PORT } from "./config/serverConfig.js";
 import apiRoutes from "./routes/apiRoutes.js";
 
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded());
 
 app.get("/", (req, res) => {
   res.json({
