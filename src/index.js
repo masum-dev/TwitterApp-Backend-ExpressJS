@@ -1,6 +1,7 @@
 import express, { urlencoded } from "express";
 import { PORT } from "./config/serverConfig.js";
 import apiRoutes from "./routes/apiRoutes.js";
+import connectDB from "./config/dbConfig.js";
 
 const app = express();
 
@@ -17,4 +18,5 @@ app.use("/api", apiRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server started at PORT ${PORT}`);
+  connectDB();
 });
